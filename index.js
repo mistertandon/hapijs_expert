@@ -13,6 +13,15 @@ SERVER.route({
     }
 });
 
+SERVER.route({
+    method: 'GET',
+    path: '/users/{userName}',
+    handler: function(request, reply){
+        
+        reply(`Hello from ${encodeURIComponent(request.params.userName)} !`);
+    }
+});
+
 SERVER.start((error) => {
 
     if (error){
