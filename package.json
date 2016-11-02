@@ -1,0 +1,29 @@
+{
+  "name": "hapi_expert",
+  "version": "1.0.0",
+  "description": "hapijs from beginner to advance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistertandon/hapijs_expert.git"
+  },
+  "keywords": [
+    "hapijs",
+    "from",
+    "beginner",
+    "to",
+    "advance"
+  ],
+  "author": "mistertandon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mistertandon/hapijs_expert/issues"
+  },
+  "homepage": "https://github.com/mistertandon/hapijs_expert#readme",
+  "devDependencies": {
+    "hapi": "^15.2.0"
+  }
+}
