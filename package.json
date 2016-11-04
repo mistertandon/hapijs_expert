@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/mistertandon/hapijs_expert#readme",
   "devDependencies": {
-    "hapi": "^15.2.0"
+    "handlebars": "^4.0.5",
+    "hapi": "^15.2.0",
+    "vision": "^4.1.0"
   }
 }
