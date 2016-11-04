@@ -1,10 +1,47 @@
+    'use strict';
     const HAPI = require('hapi');
     const PATH = require('path');
+    const MYSQL = require('mysql');
 
     const SERVER = new HAPI.Server();
 
     SERVER.connection({
         port: 3000
+    });
+
+    let pool = MYSQL.createPool({
+        host: 'localhost',
+        user: 'root',
+        password: 'times@123',
+        database: '121keys'
+    });
+
+
+    SERVER.route({
+        method: 'GET',
+        path: '/02_mpd',
+        handler: function(request, reply) {
+
+            pool.getConnection(function(err, pConnection) {
+
+                if (err) throw err;
+
+                pConnection.query(
+                    'SELECT id, session_id, client_ip, table_name FROM usertracking ORDER BY table_name limit 0,10',
+                    function(err, rows) {
+
+                        if (err) {
+
+                            throw err;
+                        }
+
+                        pConnection.release();
+                        
+                        reply(rows);
+                    });
+            });
+
+        }
     });
 
     SERVER.register(require('vision'), function(err) {
@@ -14,6 +51,9 @@
             throw err;
         }
 
+        /**
+         * vpd: HapiJs plugin <vision> demo.
+         */
         SERVER.route({
             method: 'GET',
             path: '/01_vpd',
